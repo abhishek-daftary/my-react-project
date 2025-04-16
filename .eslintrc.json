@@ -1,0 +1,76 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/react",
+    "prettier"
+  ],
+  "plugins": ["react", "react-hooks", "jsx-a11y", "import"],
+  "rules": {
+    // React-specific
+    "react/react-in-jsx-scope": "off", // React 17+ doesn't require import React
+    "react/prop-types": "off", // If you're using TypeScript or PropTypes elsewhere
+    "react/jsx-uses-react": "off",
+    "react/jsx-uses-vars": "error",
+
+    // React Hooks
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // General JS
+    "no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "warn",
+    "eqeqeq": ["error", "always"],
+    "no-var": "error",
+    "prefer-const": "error",
+
+    // Import Rules
+    "import/no-default-export": "error",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.test.jsx",
+          "**/*.spec.js",
+          "**/*.spec.jsx",
+          "**/setupTests.js"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
